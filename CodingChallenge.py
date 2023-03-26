@@ -51,7 +51,7 @@ def convert_rom_dec(num):
 
     print(f'{num} = {final_num}')
 
-convert_rom_dec("D")
+convert_rom_dec("X")
 
 # decimal --> roman
 #go through each digit using // and % from the ones place up, and convert each digit to roman numerals after
@@ -127,3 +127,5 @@ def convert_dec_rom(lst):
                 base = 'C'
                 tens_place = 2
     print(final_string)
+
+convert_dec_rom(separate_decimal(3999))
