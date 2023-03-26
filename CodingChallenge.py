@@ -25,7 +25,7 @@ def convert_rom_dec(num):
             #check to see if character to the right is greater than the current character
             #first convert current character and character to the right to their proper values
             #then make sure the character to the right can be preceded by the current character
-            #then subtract or add the two numbers
+            #then subtract the two numbers or add the current number to the final number
 
             #if the current letter is the same as the letter in the list of numerals, give that letter the proper numerical value
             if new_num[i] == numerals[j]:
@@ -34,7 +34,7 @@ def convert_rom_dec(num):
             #check if the letter to the right is one of the ones the current one can precede
             #if it is, we can do the subtraction
             #if you subtract, you need to skip over the next letter because it's already been taken into account
-            #this only works if the string is longer than one however
+            #this only works if the string is longer than one
             if len(new_num) > 1:
                 if new_num[i+1] == numerals[j+1]:
                     next_val = num_vals[j+1]
