@@ -1,3 +1,6 @@
+"""I used all 4 hours for this challenge. It took me about 3 hours to complete the conversion from decimal to roman, 
+and I worked on the conversion from roman to decimal for about 1 hour."""
+
 # roman --> decimal
 #check each character and the one to the right to see if there's subtraction, otherwise use addition
 
