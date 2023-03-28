@@ -1,11 +1,23 @@
 """I used all 4 hours for this challenge. It took me about 3 hours to complete the conversion from decimal to roman, 
-and I worked on the conversion from roman to decimal for about 1 hour."""
+and I worked on the conversion from roman to decimal for about 1 hour. The conversion from decimal to roman is complete,
+but I can only convert single Roman Numeral values or add on ones. My program cannot fulfill the subtraction rule or add any
+other numerical values besides one."""
+
+"""I decided to convert any numbers up to 1000 and anything greater than 1000, but using that as the highest numeral because I
+interpreted the 3,999 in the prompt as the largest numer my program would need to calculate. Doing it this way would ensure all
+possible numbers would be convertible."""
 
 # roman --> decimal
 #check each character and the one to the right to see if there's subtraction, otherwise use addition
 
 
 def convert_rom_dec(num):
+
+    #take a user input for a roman numeral
+    print("Enter a Roman Numeral.")
+    x = input()
+    num = x
+
     #make a new num because I'm going to take out numbers so I don't add them twice and I want to preserve the original
     new_num = num
     numerals = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
@@ -36,8 +48,9 @@ def convert_rom_dec(num):
                 break
             #check if the letter to the right is one of the ones the current one can precede
             #if it is, we can do the subtraction
-            #if you subtract, you need to skip over the next letter because it's already been taken into account
-            #this only works if the string is longer than one
+            #if you subtract, you need to remove the next letter, because it's already been taken into account, and remove the current 
+            #one so the string eventually becomes one character long
+            #this only works if the string is longer than one (I can remove each letter that is used until the string has none left)
             if len(new_num) > 1:
                 if new_num[i+1] == numerals[j+1]:
                     next_val = num_vals[j+1]
@@ -54,15 +67,20 @@ def convert_rom_dec(num):
 
     print(f'{num} = {final_num}')
 
-convert_rom_dec("X")
 
 # decimal --> roman
 #go through each digit using // and % from the ones place up, and convert each digit to roman numerals after
 
 
-def separate_decimal(num):
+#use pattern to make it simpler
+def convert_dec_rom(num):
+        
+    #take a user input decimal number
+    print('Enter a decimal number.')
+    x = input()
+    num  = int(x)
 
-#go through each digit
+    #go through each digit
     n = num
     power = 1
     lst_nums = []
@@ -71,10 +89,7 @@ def separate_decimal(num):
         lst_nums.append(k)
         power += 1
         n = n - k
-    return lst_nums
-
-#use pattern to make it simpler
-def convert_dec_rom(lst):
+    
     numerals = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
     num_vals = [1, 5, 10, 50, 100, 500, 1000]
     final_string = ""
@@ -82,7 +97,7 @@ def convert_dec_rom(lst):
     tens_place = 0
 
     #if there are any zeros, we don't want them to be evaluated, or they'll throw the number off
-    new_list = [x for x in lst if x != 0]
+    new_list = [x for x in lst_nums if x != 0]
     new_list = new_list[::-1]
     
     #pattern:
@@ -129,6 +144,8 @@ def convert_dec_rom(lst):
             elif j == 4:
                 base = 'C'
                 tens_place = 2
-    print(final_string)
+    print(f'{num} = {final_string}')
 
-convert_dec_rom(separate_decimal(3999))
+convert_rom_dec(0)
+convert_dec_rom(0)
+finish = input('Press Enter to close.')
